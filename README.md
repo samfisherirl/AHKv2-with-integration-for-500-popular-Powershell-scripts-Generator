@@ -11,8 +11,7 @@ This repository contains an AutoHotKey (AHK) application that allows you to impo
 - Execute PowerShell commands directly from the AHK GUI.
 - Seamless integration of AHK and PowerShell for automation purposes.
 
-![image](https://github.com/samfisherirl/AHKv2-with-integration-for-500-popular-Powershell-scripts-Generator/assets/98753696/86382776-8bf1-4d2d-ab32-114ff58812de)
-
+![image](https://github.com/samfisherirl/AHKv2-with-integration-for-500-popular-Powershell-scripts-Generator/assets/98753696/0c173eaf-7c76-49cf-8c17-f939aa3a624d)
 
 ## Requirements
 
