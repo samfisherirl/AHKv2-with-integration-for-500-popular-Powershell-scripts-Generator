@@ -11,6 +11,9 @@ This repository contains an AutoHotKey (AHK) application that allows you to impo
 - Execute PowerShell commands directly from the AHK GUI.
 - Seamless integration of AHK and PowerShell for automation purposes.
 
+![image](https://github.com/samfisherirl/AHKv2-with-integration-for-500-popular-Powershell-scripts-Generator/assets/98753696/86382776-8bf1-4d2d-ab32-114ff58812de)
+
+
 ## Requirements
 
 - AutoHotKey (AHK): The AHK interpreter is required to run the application. You can download it from the official website: [AutoHotKey Downloads](https://www.autohotkey.com/download/)
@@ -25,6 +28,38 @@ This repository contains an AutoHotKey (AHK) application that allows you to impo
 6. Write AHK scripts in the provided text area, utilizing the imported PowerShell scripts.
 7. Run the AHK script by pressing the assigned hotkey or using the "Run" button in the GUI.
 8. The AHK script will execute the selected PowerShell commands from the script list.
+
+## Example Output
+
+```autohotkey
+ps_path := A_ScriptDir "\ps_script.txt"
+FileAppend(PS_Script(ps_path), ps_path)
+RunWait(command())
+FileDelete(ps_path)
+
+command() {
+return "powershell -noexit -ExecutionPolicy Bypass -Command `"& { $scriptContent = Get-Content -Path 'ps_script.txt' -Raw; Invoke-Expression -Command $scriptContent }`""
+}
+
+PS_Script(ps_path) {
+	if FileExist(ps_path) {
+		FileDelete(ps_path)
+	}
+
+	return "
+	(
+	param([string]$Message = "sca")
+	try {
+		if ($Message -eq "" ) { $URL = read-host "Enter alert message" }
+		echo "ALERT: $Message"
+		curl --header "Access-Token: o.PZl5XCp6SBl4F5PpaNXGDfFpUJZKAlEb" --header "Content-Type: application/json" --data-binary '{"type": "note", "title": "ALERT", "body": "$Message"}' --request POST https://api.pushbullet.com/v2/pushes
+	} catch {
+		"?? Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
+	}
+	
+	)"
+}
+```
 
 ## Notes
 
