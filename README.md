@@ -1,4 +1,4 @@
-# AHKv2-with-integration-for-500-popular-Powershell-scripts-Generator
+# AHKv2 with integration for 500 popular Powershell scripts Generator
 AHKv2 with integration for 500 popular Powershell scripts + Generator
 # PowerShell Script Runner with AHK GUI
 
