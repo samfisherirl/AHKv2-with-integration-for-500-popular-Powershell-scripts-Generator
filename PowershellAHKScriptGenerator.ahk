@@ -1,5 +1,5 @@
 #Requires Autohotkey v2.0
-#Include JXON.ahk
+#Include %A_ScriptDir%\Scripts\_JSONS.ahk
 ;AutoGUI 2.5.8
 ;Auto-GUI-v2 credit to Alguimist autohotkey.com/boards/viewtopic.php?f=64&t=89901
 ;AHKv2converter credit to github.com/mmikeww/AHK-v2-script-converter
@@ -105,7 +105,7 @@ import_ps_paths_and_descriptions() {
 readJSONmapConfig() {
 	global LV
 	x := FileRead(config_path)
-	config := Jxon_Load(&x)
+	config := Jsons.Loads(&x)
 	for key, value in config {
 		LV.Add(, key, value)
 	}
@@ -118,7 +118,7 @@ newconfig() {
 		descr := getDescr(x)
 		config.Set(A_LoopFileName, descr)
 	}
-	FileAppend(Jxon_Dump(config), config_path)
+	FileAppend(Jsons.Dump(config), config_path)
 	readJSONmapConfig()
 }
 
